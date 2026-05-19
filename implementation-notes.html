@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Implementation notes — FDE Take-Home Dashboard</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 720px; margin: 2rem auto; line-height: 1.45; color: #111; }
+    .note-meta { font-size: 0.85rem; color: #444; margin-bottom: 0.35rem; }
+    section { margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid #e5e5e5; }
+    h2 { font-size: 1.1rem; margin-top: 0; }
+    article.note { margin: 1rem 0; padding-left: 0.75rem; border-left: 3px solid #6366f1; }
+    h3 { font-size: 1rem; margin: 0 0 0.35rem; }
+  </style>
+</head>
+<body>
+<h1>Implementation notes: FDE take-home dashboard + Voice Agent Brain</h1>
+<p><strong>Started:</strong> 2026-05-19</p>
+<p>Running log — decisions outside the assignment text, deviations, tradeoffs, surprises.</p>
+
+<section id="part-1-priority-order" data-brain="brain/part-1-priority-order.brain.md">
+  <h2>Part 1 — Portfolio priority order</h2>
+  <article class="note" data-date="2026-05-19">
+    <div class="note-meta"><time datetime="2026-05-19">2026-05-19</time></div>
+    <h3>Aniline vs Plexus sequencing</h3>
+    <p>Aniline has hard deliverable bandwidth (Tuesday 11am eval) and Sara asked for transcripts on 2GB of audio — parallelizes with Plexus rescue prep. Plexus stays second because recurring health alerts plus 35% volume drop on $18k/mo is existential revenue motion, not nurture.</p>
+  </article>
+</section>
+
+<section id="part-1-plexus" data-brain="brain/part-1-plexus.brain.md">
+  <h2>Part 1 — Plexus Health</h2>
+  <article class="note" data-date="2026-05-19">
+    <div class="note-meta"><time datetime="2026-05-19">2026-05-19</time></div>
+    <h3>Hiring signals are ambiguous</h3>
+    <p>CTO Speech Infra role could mean scaling, owning vendor integrations, or replacement — used it to tighten multi-threading message, not to assert churn without account telemetry.</p>
+  </article>
+</section>
+
+<section id="part-1-telegraph" data-brain="brain/part-1-telegraph.brain.md">
+  <h2>Part 1 — Telegraph Studio</h2>
+  <article class="note" data-date="2026-05-19">
+    <div class="note-meta"><time datetime="2026-05-19">2026-05-19</time></div>
+    <h3>No human relationship</h3>
+    <p>Outbound must be anchored to observed usage pattern (80k calls week two, cliff to zero). Speculated blockers minimally: session lifecycle, latency, billing/credits — actionable hooks for engineer reply.</p>
+  </article>
+</section>
+
+<section id="part-1-veridis" data-brain="brain/part-1-veridis.brain.md">
+  <h2>Part 1 — Veridis Routing</h2>
+  <article class="note" data-date="2026-05-19">
+    <div class="note-meta"><time datetime="2026-05-19">2026-05-19</time></div>
+    <h3>Stop generic follow-ups</h3>
+    <p>U2 stagnation plus unanswered pings plus voice hires warrants migration/risk wedge and optional benchmark offer — not calendar ping #4.</p>
+  </article>
+</section>
+
+<section id="part-1-northwell" data-brain="brain/part-1-northwell.brain.md">
+  <h2>Part 1 — Northwell Bioacoustics</h2>
+  <article class="note" data-date="2026-05-19">
+    <div class="note-meta"><time datetime="2026-05-19">2026-05-19</time></div>
+    <h3>Gated nurture</h3>
+    <p>FDE depth reserved until API key, security posture, or funding clarity — aligns with disciplined portfolio stance in skill.</p>
+  </article>
+</section>
+
+<section id="part-1-aniline" data-brain="brain/part-1-aniline.brain.md">
+  <h2>Part 1 — Aniline Interpretation</h2>
+  <article class="note" data-date="2026-05-19">
+    <div class="note-meta"><time datetime="2026-05-19">2026-05-19</time></div>
+    <h3>&ldquo;Data not slides&rdquo;</h3>
+    <p>Pilot reply commits to transcripts + qualitative failure-mode notes + honest confidence bounds. Pulled multilingual VAD expert early per prompt — avoids last-minute stunt scheduling.</p>
+  </article>
+</section>
+
+<section id="part-1-outreach" data-brain="brain/part-1-outreach.brain.md">
+  <h2>Part 1 — Outreach drafted</h2>
+  <article class="note" data-date="2026-05-19">
+    <div class="note-meta"><time datetime="2026-05-19">2026-05-19</time></div>
+    <h3>Aniline primary outreach</h3>
+    <p>Chosen for competitive eval stakes and Tuesday deadline contrast to generic pipeline touch — stronger signal than nurture-only leads.</p>
+  </article>
+</section>
+
+<section id="part-2-diagnosis" data-brain="brain/part-2-diagnosis.brain.md">
+  <h2>Part 2 — DriveLine diagnosis</h2>
+  <article class="note" data-date="2026-05-19">
+    <div class="note-meta"><time datetime="2026-05-19">2026-05-19</time></div>
+    <h3>3006 vs billing bug</h3>
+    <p>Lifecycle misuse (no explicit termination; 300s inactivity backstop treated as primary close) explains session tail and bill drift. Documented caveat: docs associate 3006 with invalid-message class issues — Marco should paste raw session close metadata after patch.</p>
+  </article>
+</section>
+
+<section id="part-2-patch" data-brain="brain/part-2-patch.brain.md">
+  <h2>Part 2 — Patch</h2>
+  <article class="note" data-date="2026-05-19">
+    <div class="note-meta"><time datetime="2026-05-19">2026-05-19</time></div>
+    <h3>Minimal invasive change</h3>
+    <p><code>try/finally</code> always <code>disconnect(terminate=True)</code> once connected; shorter inactivity safety net; guard empty PCM frames; Marco keeps existing turn/POS callbacks.</p>
+  </article>
+</section>
+
+<section id="part-2-marco-reply" data-brain="brain/part-2-marco-reply.brain.md">
+  <h2>Part 2 — Marco reply</h2>
+  <article class="note" data-date="2026-05-19">
+    <div class="note-meta"><time datetime="2026-05-19">2026-05-19</time></div>
+    <h3>Partner tone under exec pressure</h3>
+    <p>Explain bill math in plain language (paid session_duration vs usable audio_duration). Invite competitor skepticism handled as engineering proof, not defensiveness.</p>
+  </article>
+</section>
+
+<section id="part-2-internal-note" data-brain="brain/part-2-internal-note.brain.md">
+  <h2>Part 2 — Internal Product/Engineering</h2>
+  <article class="note" data-date="2026-05-19">
+    <div class="note-meta"><time datetime="2026-05-19">2026-05-19</time></div>
+    <h3>Docs gap hypothesis</h3>
+    <p>Server-proxy WebSocket pattern under-emphasizes explicit terminate + metric <code>session_duration - audio_duration</code>; SDK could add ergonomics helper or checklist.</p>
+  </article>
+</section>
+
+<section id="dashboard-impl">
+  <h2>Dashboard &amp; Voice Agent implementation</h2>
+  <article class="note" data-date="2026-05-19">
+    <div class="note-meta"><time datetime="2026-05-19">2026-05-19</time></div>
+    <h3>Next.js alongside agent skills folder</h3>
+    <p>Scaffolded manually (non-empty repo). Content lives under <code>/content</code>; brain files consumed server-side only for prompts to avoid huge client bundles.</p>
+  </article>
+  <article class="note" data-date="2026-05-19">
+    <div class="note-meta"><time datetime="2026-05-19">2026-05-19</time></div>
+    <h3>Voice Agent browser audio</h3>
+    <p>PCM16 mono 24kHz per Voice Agent docs; playback uses sequential AudioBuffer scheduling (avoid sleep-per-chunk). Token mint route uses Bearer scheme per product docs.</p>
+  </article>
+  <article class="note" data-date="2026-05-19">
+    <div class="note-meta"><time datetime="2026-05-19">2026-05-19</time></div>
+    <h3>TypeScript / ESLint alignment</h3>
+    <p>Pinned <code>typescript@5.8</code> alongside <code>eslint-config-next@15.5.18</code> because bleeding-edge toolchain combos broke <code>next build</code> lint resolution; added ambient <code>global-css.d.ts</code> so CSS imports type-check cleanly.</p>
+  </article>
+</section>
+
+</body>
+</html>

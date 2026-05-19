@@ -1,0 +1,4 @@
+interface:
+  display_name: "Spec Implementation"
+  short_description: "Implement specs with running implementation notes"
+  default_prompt: "Implement this spec and keep implementation-notes.md updated with every decision, deviation, and tradeoff as you go."

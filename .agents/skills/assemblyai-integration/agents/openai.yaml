@@ -1,0 +1,4 @@
+interface:
+  display_name: "AssemblyAI Integration"
+  short_description: "Integrate AssemblyAI STT, streaming, and voice agents"
+  default_prompt: "Use $assemblyai-integration to help me integrate AssemblyAI. Start discovery — one question at a time."

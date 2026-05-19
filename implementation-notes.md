@@ -74,6 +74,12 @@ Structured HTML log: [implementation-notes.html](implementation-notes.html) (aut
 **Tradeoff:** This is perceived-performance feedback rather than a data prefetch rewrite; it keeps the app simple and gives the user an immediate signal.  
 **Build note:** Disabled Next's Webpack build worker because local builds were intermittently producing stale chunk/page-manifest misses during page-data collection after style/client-shell changes.
 
+## 2026-05-19: Voice Agent methodology grounding
+
+**Context:** Reviewers asked whether the voice agent knows Cursor/Codex workflow from implementation notes. Only Part 1/2 `.brain.md` files were in `BRAIN_PROMPT_SECTIONS_ORDER`; the HTML `methodology` section was not.  
+**Decision:** Added `brain/methodology.brain.md` (distilled from `#methodology`) and prepended it to voice context assembly.  
+**Surprise:** `implementation-notes.md` itself is still not injected — only ordered brain files + submission snippets.
+
 ## 2026-05-19: Remove route feedback UI; prefetch nav routes
 
 **Context:** The global "Opening …" banner made slow first navigations feel worse, and first clicks in `next dev` were still waiting on on-demand route compilation (e.g. ~4s for `/part-1` in terminal logs).  

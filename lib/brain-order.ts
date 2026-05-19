@@ -2,6 +2,11 @@
  * Concatenation order for Voice Agent context. Part 2 first, then hot Part 1 items.
  */
 export const BRAIN_PROMPT_SECTIONS_ORDER = [
+  {
+    id: 'methodology',
+    file: 'methodology.brain.md',
+    title: 'Methodology: thin harness, fat skills (Cursor + Codex workflow)',
+  },
   { id: 'part-2-diagnosis', file: 'part-2-diagnosis.brain.md', title: 'DriveLine diagnosis' },
   { id: 'part-2-patch', file: 'part-2-patch.brain.md', title: 'DriveLine patch rationale' },
   { id: 'part-2-marco-reply', file: 'part-2-marco-reply.brain.md', title: 'Marco customer reply strategy' },

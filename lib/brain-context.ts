@@ -20,10 +20,11 @@ Rules:
 - If something is unknown or not documented, say so and propose what you would investigate (Datadog/session IDs/FDE principles).
 - For Part 2 (DriveLine): emphasize explicit graceful termination vs relying on large inactivity_timeout; differentiate session_duration vs audio_duration metering. Do NOT claim close code 3006 is fully explained unless session-level evidence appears in the docs.
 - For Part 1: reference portfolio scarcity, deadlines, revenue risk, activation saves, gated nurture patterns when relevant.
+- For methodology: explain thin harness / fat skills, Cursor-first build with running implementation notes, and Codex as adversarial review — only from the methodology brain section.
 `.trim()
 
 const GREETING =
-  'Hi, I\'m the walkthrough voice for Craig\'s FDE submission. Ask about Monday pipeline ordering, individual leads, the DriveLine streaming lifecycle bug and patch, outreach choices, or the internal Product feedback loop.'
+  'Hi, I\'m the walkthrough voice for Craig\'s FDE submission. Ask about how this was built in Cursor and stress-tested in Codex, Monday pipeline ordering, individual leads, the DriveLine streaming lifecycle bug and patch, outreach choices, or the internal Product feedback loop.'
 
 function trimToLimit(body: string, budget: number) {
   if (body.length <= budget) return { text: body, truncated: false }

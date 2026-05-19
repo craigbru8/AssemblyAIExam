@@ -9,6 +9,23 @@ Structured HTML log: [implementation-notes.html](implementation-notes.html) (aut
 
 <!-- Mirror key entries here only if you maintain both; primary is implementation-notes.html -->
 
+## 2026-05-19: Methodology, Thin Harness, Fat Skills
+
+**Operating principle:** This project was built around the Garry Tan / YC-inspired idea that the new agentic workflow is **thin harness, fat skills**: keep the app shell small and inspectable, then invest in reusable skills, grounding, artifacts, and review loops that make the work better over time.
+
+**Presentation belief:** HTML and dashboard-style artifacts are a strong medium for human-agent collaboration because they are navigable, inspectable, deployable, and easy to hand to both an interviewer and an AI reviewer. This follows the pattern recently popularized by Claude-style artifact workflows: the artifact is not just a document, it is the working surface.
+
+**Workflow used:**
+
+1. Created agent skills in Cursor using the new Composer 2.5 model available on May 19, 2026, then grounded those skills in AssemblyAI, the product surface, and the FDE onboarding context.
+2. Provided the original PDF instructions and converted them to Markdown so the assignment could be versioned, searched, and reused as structured context.
+3. Had the agent execute the exam end-to-end while I completed my own pass independently. I required running implementation notes so every material change, assumption, and tradeoff could be traced back.
+4. Cross-referenced the agent output against my independent answer, compared reasoning, and iterated toward the final response.
+5. Ran a second pass with Codex GPT-5.5 for pushback, challenge, and stress testing of correctness, presentation, and customer judgment.
+6. For fun, built the AssemblyAI Voice Agent layer so reviewers can "talk to my brain" and interrogate the methodology directly.
+7. Published the work as a public GitHub repo for deeper inspection: [craigbru8/AssemblyAIExam](https://github.com/craigbru8/AssemblyAIExam), then deployed the dashboard to Vercel for submission.
+8. Finished with final tweaks, polish, copy edits, production fixes, and verification passes.
+
 ## 2026-05-19: HTML as source of truth
 
 **Context:** Prefer `implementation-notes.html` for rich browsing in browser.  

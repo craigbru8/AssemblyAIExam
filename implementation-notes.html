@@ -17,6 +17,30 @@
 <p><strong>Started:</strong> 2026-05-19</p>
 <p>Running log of decisions outside the assignment text, deviations, tradeoffs, and surprises.</p>
 
+<section id="methodology">
+  <h2>Methodology: Thin Harness, Fat Skills</h2>
+  <article class="note" data-date="2026-05-19">
+    <div class="note-meta"><time datetime="2026-05-19">2026-05-19</time></div>
+    <h3>Operating principle</h3>
+    <p>This project was built around the Garry Tan / YC-inspired idea that the new agentic workflow is <strong>thin harness, fat skills</strong>: keep the app shell small and inspectable, then invest in reusable skills, grounding, artifacts, and review loops that make the work better over time.</p>
+    <p>I also chose HTML and dashboard-style presentation deliberately. They are a strong medium for human-agent collaboration because they are navigable, inspectable, deployable, and easy to hand to both an interviewer and an AI reviewer. This follows the pattern recently popularized by Claude-style artifact workflows: the artifact is not just a document, it is the working surface.</p>
+  </article>
+  <article class="note" data-date="2026-05-19">
+    <div class="note-meta"><time datetime="2026-05-19">2026-05-19</time></div>
+    <h3>Workflow used for this submission</h3>
+    <ol>
+      <li>Created agent skills in Cursor using the new Composer 2.5 model available on May 19, 2026, then grounded those skills in AssemblyAI, the product surface, and the FDE onboarding context.</li>
+      <li>Provided the original PDF instructions and converted them to Markdown so the assignment could be versioned, searched, and reused as structured context.</li>
+      <li>Had the agent execute the exam end-to-end while I completed my own pass independently. I required running implementation notes so every material change, assumption, and tradeoff could be traced back.</li>
+      <li>Cross-referenced the agent output against my independent answer, compared reasoning, and iterated toward the final response.</li>
+      <li>Ran a second pass with Codex GPT-5.5 for pushback, challenge, and stress testing of correctness, presentation, and customer judgment.</li>
+      <li>For fun, built the AssemblyAI Voice Agent layer so reviewers can "talk to my brain" and interrogate the methodology directly.</li>
+      <li>Published the work as a public GitHub repo for deeper inspection: <a href="https://github.com/craigbru8/AssemblyAIExam">craigbru8/AssemblyAIExam</a>, then deployed the dashboard to Vercel for submission.</li>
+      <li>Finished with final tweaks, polish, copy edits, production fixes, and verification passes.</li>
+    </ol>
+  </article>
+</section>
+
 <section id="part-1-priority-order" data-brain="brain/part-1-priority-order.brain.md">
   <h2>Part 1: Portfolio priority order</h2>
   <article class="note" data-date="2026-05-19">

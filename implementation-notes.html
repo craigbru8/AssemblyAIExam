@@ -133,6 +133,21 @@
     <h3>TypeScript / ESLint alignment</h3>
     <p>Pinned <code>typescript@5.8</code> alongside <code>eslint-config-next@15.5.18</code> because bleeding-edge toolchain combos broke <code>next build</code> lint resolution; added ambient <code>global-css.d.ts</code> so CSS imports type-check cleanly.</p>
   </article>
+  <article class="note" data-date="2026-05-19">
+    <div class="note-meta"><time datetime="2026-05-19">2026-05-19</time></div>
+    <h3>Audit polish scope</h3>
+    <p>Post-audit patch focuses on first-impression executive framing, rendered-link correctness, Voice Agent reliability/UX, and copy tone. Preserved the concise take-home answer rather than expanding into a larger redesign.</p>
+  </article>
+  <article class="note" data-date="2026-05-19">
+    <div class="note-meta"><time datetime="2026-05-19">2026-05-19</time></div>
+    <h3>Voice Agent reliability and framing</h3>
+    <p>Connected the capture worklet through a zero-gain sink so the browser keeps processing mic frames without local playback; relabeled prompt chips as spoken suggestions; sharpened the agent prompt toward candid FDE personality. Kept the interaction voice-first rather than inventing unsupported text entry.</p>
+  </article>
+  <article class="note" data-date="2026-05-19">
+    <div class="note-meta"><time datetime="2026-05-19">2026-05-19</time></div>
+    <h3>Summary</h3>
+    <p>Shipped executive-readout homepage, clearer Part 1 sequencing language, safer customer-facing wording, fixed Part 2 markdown/link presentation, stronger Voice Agent personality prompt, and active mic worklet wiring. Verified with <code>npm run build</code>, <code>npm run lint</code>, and local browser smoke checks for <code>/</code> and <code>/brain</code>. Full live Voice Agent mic/token conversation was not exercised in this pass.</p>
+  </article>
 </section>
 
 </body>

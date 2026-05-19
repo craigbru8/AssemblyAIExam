@@ -4,13 +4,13 @@
 
 Marco's kiosk WebSocket shuts down when each order completes, but AssemblyAI Streaming sessions never receive an explicit graceful terminate — the handler logs `WebSocketDisconnect` then relies entirely on `inactivity_timeout=300`. That treats every order as needing up to five minutes of idle-paid session tail after usable audio stops, ballooning **`session_duration_seconds` vs `audio_duration_seconds`** relative to nominal order throughput. Billing growing ~2× vs ~20% order growth is consistent with long session tails amortized across throughput.
 
-`Close code `3006` is **not confidently mapped** solely from this symptom — docs typically tie that family to malformed/invalid realtime messages — so Marco should share raw websocket close payloads + session identifiers after patching to separate telemetry noise from lifecycle drift._
+**Close code `3006` is not confidently mapped** solely from this symptom — docs typically tie that family to malformed/invalid realtime messages — so Marco should share raw websocket close payloads + session identifiers after patching to separate telemetry noise from lifecycle drift.
 
 ---
 
 ## Patched code
 
-The canonical file is [`part-2-patch.py`](part-2-patch.py) under `/content`.
+The canonical file is `content/part-2-patch.py`, and the full module is rendered below on this page.
 
 Highlights versus Marco's version:
 
@@ -46,7 +46,7 @@ On `close_code 3006`: I’m not going to retrofit a story without raw close reas
 
 This doesn’t change model / turn-taking configuration, so conversational accuracy expectation stays flat.
 
-Ping me if rollback candidate — happy to lurk metrics while you soak.
+If anything looks rollback-worthy, ping me and I’ll stay close to the metrics while you soak the canary.
 
 — Craig
 ```

@@ -36,7 +36,7 @@
 
 ### How I would order the day (~45 minutes pre-first-call block)
 
-Kick Aniline ingestion + templated confirmations to Sara. In parallel skim Plexus account health for anomalies. Send Plexus escalation (multi-thread) once numbers are in hand — even if skeletal, point to inspecting session tails and alert cadence.
+Kick Aniline ingestion first because the work is asynchronous and the Tuesday 11am deliverable is the least recoverable miss. In parallel, skim Plexus account health for anomalies and flag Sales/CS that a production account is at risk. Send Plexus escalation once numbers are in hand — even if skeletal, point to inspecting session tails and alert cadence.
 
 Next, fire Telegraph salvage note referencing observed ramp/drop specifics. Draft sharper Veridis message for scheduling after Aniline+Plexus if time slips (do not mass-send low-signal follow-ups).
 
@@ -60,7 +60,7 @@ We’re treating the 2GB set as an eval, not a deck. For Tuesday I’ll bring:
 
 I’m aligning someone with multilingual VAD + applied realtime context so Tuesday isn’t slideware.
 
-Quick calibration: If we have to pick one pole for compression between hard p95 realtime and multilingual accuracy this week — which loses first?
+Quick calibration: If Tuesday forces a tradeoff between hard p95 realtime and multilingual accuracy, which should we optimize for first?
 
 — Craig
 ```

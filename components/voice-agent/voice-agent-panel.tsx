@@ -52,7 +52,7 @@ export default function VoiceAgentPanel() {
       </div>
 
       <div className="mt-5">
-        <p className="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Suggested prompts</p>
+        <p className="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Try saying these</p>
         <div className="mt-3 flex flex-wrap gap-2">
           {SUGGESTED.map((q) => (
             <button
@@ -62,7 +62,7 @@ export default function VoiceAgentPanel() {
                 navigator.clipboard.writeText(q).catch(() => {})
               }}
               className="rounded border border-dashed border-[#374151] px-3 py-1 text-[11px] text-[var(--muted)] hover:border-[var(--accent)] hover:text-[var(--accent)]"
-              title="Click to copy to clipboard — paste after connecting"
+              title="Click to copy this exact phrase"
             >
               {q}
             </button>

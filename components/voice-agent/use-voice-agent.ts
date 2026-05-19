@@ -38,6 +38,8 @@ export function useVoiceAgent() {
   const wsRef = useRef<WebSocket | null>(null)
   const captureCtxRef = useRef<AudioContext | null>(null)
   const mediaStreamRef = useRef<MediaStream | null>(null)
+  const processorRef = useRef<AudioWorkletNode | null>(null)
+  const silentSinkRef = useRef<GainNode | null>(null)
   const pcmQueueRef = useRef<Int16Array>(new Int16Array(0))
   const micSampleRateRef = useRef(48000)
 
@@ -46,6 +48,14 @@ export function useVoiceAgent() {
   }, [])
 
   const teardownCapture = useCallback(() => {
+    try {
+      processorRef.current?.disconnect()
+      silentSinkRef.current?.disconnect()
+    } catch {
+      /* noop */
+    }
+    processorRef.current = null
+    silentSinkRef.current = null
     mediaStreamRef.current?.getTracks().forEach((t) => t.stop())
     mediaStreamRef.current = null
     pcmQueueRef.current = new Int16Array(0)
@@ -109,6 +119,14 @@ export function useVoiceAgent() {
       }
     }
     mic.connect(processor)
+
+    // Keep the worklet in the active audio graph without playing mic audio locally.
+    const silentSink = captureCtx.createGain()
+    silentSink.gain.value = 0
+    processor.connect(silentSink)
+    silentSink.connect(captureCtx.destination)
+    processorRef.current = processor
+    silentSinkRef.current = silentSink
 
     pcmQueueRef.current = new Int16Array(0)
     pushLog(`microphone armed @ ~${captureCtx.sampleRate}Hz capture → ~24 kHz egress`)

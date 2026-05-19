@@ -186,8 +186,7 @@ export function useVoiceAgent() {
           if (!payloadData) return
           playerRef.current ??= new AgentAudioPlayer()
           const pcm16 = base64PCM16ToInt16(payloadData)
-          await playerRef.current.resumeIfSuspended()
-          playerRef.current.enqueueInt16PCM(pcm16)
+          await playerRef.current.enqueueInt16PCM(pcm16)
           return
         }
         case 'reply.done': {

@@ -223,6 +223,11 @@
     <h3>Navigation responsiveness</h3>
     <p>Section navigation did not feel reactive enough when clicking between pages, especially in local dev where route compilation can pause before the next page appears. Added a small global route feedback component that responds on internal link press, shows an Assembly-blue progress sweep and loading label, then settles after the pathname changes. Also sharpened pressed states on buttons and nav links. Disabled Next's Webpack build worker because local builds were intermittently producing stale chunk/page-manifest misses during page-data collection after style/client-shell changes.</p>
   </article>
+  <article class="note" data-date="2026-05-19">
+    <div class="note-meta"><time datetime="2026-05-19">2026-05-19</time></div>
+    <h3>Agent playback: clock-driven drain</h3>
+    <p>Choppy TTS was traced to wall-clock scheduling of each <code>reply.audio</code> chunk via chained <code>AudioBufferSourceNode.start()</code> times. AssemblyAI's Voice Agent reference explicitly warns against sleep/timeline scheduling and recommends writing PCM into a buffer drained at 24 kHz. Replaced that with a <code>playback-worklet.js</code> queue consumed at the AudioContext sample clock; <code>flushInterrupted</code> clears the queue on barge-in.</p>
+  </article>
 </section>
 
 </body>

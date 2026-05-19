@@ -1,10 +1,13 @@
 import { int16PCMToFloat32, resampleLinear } from '@/lib/audio/pcm'
 
-/** Schedule decoded reply.audio PCM chunks at nominal Voice Agent PCM rate (~24 kHz). */
+/**
+ * Drain agent reply.audio at the AudioContext clock (not wall-clock scheduling).
+ * Matches Voice Agent guidance: write PCM into a buffer the OS/worklet drains at 24 kHz.
+ */
 export class AgentAudioPlayer {
   private ctx?: AudioContext
-  /** Active playback nodes, stopped on interruptions */
-  private active: AudioBufferSourceNode[] = []
+  private node?: AudioWorkletNode
+  private ready?: Promise<void>
   constructor(private readonly nominalRate = 24000) {}
 
   private ctxOrThrow(): AudioContext {
@@ -18,18 +21,32 @@ export class AgentAudioPlayer {
     return this.ctx
   }
 
+  private ensureWorklet(): Promise<void> {
+    if (!this.ready) {
+      this.ready = (async () => {
+        const ctx = this.ctxOrThrow()
+        await ctx.audioWorklet.addModule('/playback-worklet.js')
+        const node = new AudioWorkletNode(ctx, 'playback-worklet-v1')
+        node.connect(ctx.destination)
+        this.node = node
+      })()
+    }
+    return this.ready
+  }
+
   async resumeIfSuspended() {
     const c = this.ctxOrThrow()
     if (c.state === 'suspended') await c.resume()
+    await this.ensureWorklet()
   }
 
-  private audioSeconds = 0
-
-  enqueueInt16PCM(pcm24: Int16Array) {
-    const ctx = this.ctxOrThrow()
+  async enqueueInt16PCM(pcm24: Int16Array) {
     if (pcm24.length === 0) return
 
-    void this.resumeIfSuspended()
+    const ctx = this.ctxOrThrow()
+    await this.resumeIfSuspended()
+    const node = this.node
+    if (!node) return
 
     const fNominal = int16PCMToFloat32(pcm24)
     const floats =
@@ -37,48 +54,25 @@ export class AgentAudioPlayer {
         ? fNominal
         : resampleLinear(fNominal, this.nominalRate, ctx.sampleRate)
 
-    const buffer = ctx.createBuffer(1, floats.length, ctx.sampleRate)
-    buffer.copyToChannel(new Float32Array(floats), 0)
-
-    const src = ctx.createBufferSource()
-    src.buffer = buffer
-    src.connect(ctx.destination)
-
-    const startAt = Math.max(ctx.currentTime, this.audioSeconds)
-    src.start(startAt)
-    const doneAt = startAt + buffer.duration
-    this.audioSeconds = doneAt
-    this.active.push(src)
-
-    src.onended = () => {
-      this.active = this.active.filter((n) => n !== src)
-    }
+    const copy = Float32Array.from(floats)
+    node.port.postMessage({ type: 'append', samples: copy.buffer }, [copy.buffer])
   }
 
   /** Stop stale agent playback after user barges-in. */
   flushInterrupted() {
-    for (const node of this.active) {
-      try {
-        node.stop()
-        node.disconnect()
-      } catch {
-        /* noop */
-      }
-    }
-    this.active = []
-
-    const c = this.ctx
-    if (c) this.audioSeconds = c.currentTime
+    this.node?.port.postMessage({ type: 'flush' })
   }
 
   dispose() {
     try {
       this.flushInterrupted()
+      this.node?.disconnect()
       void this.ctx?.close()
     } catch {
       /* noop */
     }
+    this.node = undefined
     this.ctx = undefined
-    this.audioSeconds = 0
+    this.ready = undefined
   }
 }

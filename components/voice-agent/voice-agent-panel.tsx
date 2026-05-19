@@ -16,10 +16,10 @@ export default function VoiceAgentPanel() {
     status === 'loading-context' || status === 'connecting' || status === 'awaiting-session'
 
   return (
-    <section className="rounded-xl border border-[#1f2937] bg-[var(--surface)] p-6 shadow-lg shadow-black/30">
+    <section className="aai-panel">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div className="max-w-xl space-y-2">
-          <h2 className="text-xl font-semibold text-[var(--fg)]">Talk to my brain · Voice Agent</h2>
+          <h2 className="brand-headline text-xl">Talk to my brain · Voice Agent</h2>
           <p className="text-sm text-[var(--muted)]">
             Powered by AssemblyAI Voice Agent API (<code>?token</code>&nbsp;minted securely on this
             server). Allow microphone permission after the websocket reports ready. Audio is PCM mono
@@ -37,14 +37,14 @@ export default function VoiceAgentPanel() {
             type="button"
             onClick={() => void connect()}
             disabled={busy}
-            className="rounded-lg bg-[var(--accent)] px-4 py-2 text-sm font-semibold text-black disabled:opacity-40"
+            className="brand-button disabled:opacity-40"
           >
             {busy ? 'Connecting…' : status === 'connected' ? 'Reconnect' : 'Connect'}
           </button>
           <button
             type="button"
             onClick={() => disconnect()}
-            className="rounded-lg border border-[#374151] px-4 py-2 text-sm font-medium text-[var(--muted)] hover:border-[#f97316] hover:text-[#fdba74]"
+            className="secondary-button hover:border-[var(--warn)] hover:text-[var(--warn)]"
           >
             Disconnect
           </button>
@@ -52,7 +52,7 @@ export default function VoiceAgentPanel() {
       </div>
 
       <div className="mt-5">
-        <p className="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">Try saying these</p>
+        <p className="text-xs font-semibold uppercase text-[var(--muted)]">Try saying these</p>
         <div className="mt-3 flex flex-wrap gap-2">
           {SUGGESTED.map((q) => (
             <button
@@ -61,7 +61,7 @@ export default function VoiceAgentPanel() {
               onClick={() => {
                 navigator.clipboard.writeText(q).catch(() => {})
               }}
-              className="rounded border border-dashed border-[#374151] px-3 py-1 text-[11px] text-[var(--muted)] hover:border-[var(--accent)] hover:text-[var(--accent)]"
+              className="prompt-chip"
               title="Click to copy this exact phrase"
             >
               {q}
@@ -72,18 +72,18 @@ export default function VoiceAgentPanel() {
 
       <div className="mt-6 grid gap-4 md:grid-cols-2">
         <div>
-          <h3 className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">
+          <h3 className="text-[11px] font-semibold uppercase text-[var(--muted)]">
             You · live transcript
           </h3>
-          <pre className="mt-2 min-h-[140px] overflow-auto rounded-lg border border-[#1f2937] bg-[#0b111a] p-3 text-xs text-[#d1fae5] whitespace-pre-wrap">
+          <pre className="transcript-box mt-2 text-[var(--success)]">
             {userTranscript || '(waiting for mic + speech…)'}
           </pre>
         </div>
         <div>
-          <h3 className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">
+          <h3 className="text-[11px] font-semibold uppercase text-[var(--muted)]">
             Agent brain · transcript
           </h3>
-          <pre className="mt-2 min-h-[140px] overflow-auto rounded-lg border border-[#1f2937] bg-[#0b111a] p-3 text-xs text-[#dbeafe] whitespace-pre-wrap">
+          <pre className="transcript-box mt-2 text-[var(--code)]">
             {agentTranscript || '(agent replies render here…)'}
           </pre>
         </div>
@@ -91,7 +91,7 @@ export default function VoiceAgentPanel() {
 
       <details className="mt-6">
         <summary className="cursor-pointer text-sm text-[var(--muted)]">Session debug tail</summary>
-        <pre className="mt-3 max-h-48 overflow-auto rounded-lg border border-[#1f2937] bg-black/40 p-3 text-[10px] leading-relaxed text-[#93c5fd]">
+        <pre className="transcript-box mt-3 max-h-48 min-h-0 text-[10px] text-[var(--code)]">
           {log.length ? log.join('\n') : 'No instrumentation yet.'}
         </pre>
       </details>

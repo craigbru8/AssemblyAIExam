@@ -1,7 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
+import { useEffect } from 'react'
 
 const links = [
   { href: '/', label: 'Home' },
@@ -13,16 +14,23 @@ const links = [
 
 export default function Nav() {
   const pathname = usePathname()
+  const router = useRouter()
+
+  useEffect(() => {
+    for (const { href } of links) {
+      router.prefetch(href)
+    }
+  }, [router])
 
   return (
-    <nav className="mt-6 flex flex-wrap gap-x-4 gap-y-2 text-sm font-medium">
+    <nav className="site-nav">
       {links.map((l) => {
         const active = pathname === l.href || (l.href !== '/' && pathname.startsWith(l.href))
         return (
           <Link
             key={l.href}
             href={l.href}
-            className={`nav-link rounded px-2 py-1 transition-colors ${active ? 'text-[var(--accent)] underline decoration-[var(--accent)] underline-offset-4' : 'text-[var(--muted)]'}`}
+            className={`nav-link ${active ? 'is-active' : ''}`}
           >
             {l.label}
           </Link>

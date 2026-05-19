@@ -60,3 +60,22 @@ Structured HTML log: [implementation-notes.html](implementation-notes.html) (aut
 **Decision:** Add Next.js `outputFileTracingIncludes` for the brain context API route so Vercel bundles `brain/` and `content/` markdown files into the serverless function.  
 **Tradeoff:** This keeps the current filesystem-backed prompt assembly instead of moving the brain corpus into generated TypeScript or public assets.  
 **Verified:** `npm run build`, `npm run lint`, and `.next/server/app/api/brain/context/route.js.nft.json` now includes the `brain/*.brain.md` and `content/*.md` files.
+
+## 2026-05-19: AssemblyAI-inspired visual polish
+
+**Context:** Final polish request to make the dashboard feel closer to AssemblyAI's current website: near-black surfaces, Assembly-blue CTAs, technical product panels, and compact infrastructure copy.  
+**Decision:** Centralize brand tokens and motion in `app/globals.css`, then move the shell, navigation, homepage, markdown, and Voice Agent panel onto those shared classes.  
+**Tradeoff:** Borrowed the brand language without copying the public homepage structure or assets; kept the take-home as an operational dashboard rather than a marketing page.
+
+## 2026-05-19: Navigation responsiveness
+
+**Context:** Section navigation did not feel reactive enough when clicking between pages, especially in local dev where route compilation can pause before the next page appears.  
+**Decision:** Add a small global route feedback component that responds on internal link press, shows an Assembly-blue progress sweep and loading label, then settles after the pathname changes. Also sharpened pressed states on buttons and nav links.  
+**Tradeoff:** This is perceived-performance feedback rather than a data prefetch rewrite; it keeps the app simple and gives the user an immediate signal.  
+**Build note:** Disabled Next's Webpack build worker because local builds were intermittently producing stale chunk/page-manifest misses during page-data collection after style/client-shell changes.
+
+## 2026-05-19: Remove route feedback UI; prefetch nav routes
+
+**Context:** The global "Opening …" banner made slow first navigations feel worse, and first clicks in `next dev` were still waiting on on-demand route compilation (e.g. ~4s for `/part-1` in terminal logs).  
+**Decision:** Removed `NavigationFeedback` and related CSS. Prefetch all nav `href`s on mount via `router.prefetch` so dev/prod warm route payloads in the background after the shell loads.  
+**Surprise:** The banner was masking the real cause (dev compile-on-first-visit), not fixing it; production `next start` should feel snappy after build.

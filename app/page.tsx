@@ -3,11 +3,11 @@ import Link from 'next/link'
 export default function HomePage() {
   return (
     <div className="space-y-10">
-      <section className="border-b border-[#1f2937] pb-8">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--accent)]">
+      <section className="hero-section">
+        <p className="brand-kicker">
           Executive readout
         </p>
-        <h2 className="mt-3 max-w-3xl text-2xl font-semibold leading-tight text-[var(--fg)]">
+        <h2 className="brand-headline mt-4 max-w-3xl text-2xl leading-tight sm:text-3xl">
           A concise FDE submission: prioritize the Monday portfolio, patch DriveLine&apos;s streaming
           lifecycle, and make the reasoning inspectable.
         </h2>
@@ -18,44 +18,44 @@ export default function HomePage() {
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
           <Link
-            className="rounded-lg bg-[var(--accent)] px-4 py-2 text-sm font-medium text-black transition hover:bg-[#bef8ff]"
+            className="brand-button"
             href="/part-1"
           >
             Read Part 1
           </Link>
           <Link
-            className="rounded-lg border border-[#374151] px-4 py-2 text-sm font-medium text-[var(--muted)] hover:border-[var(--accent)] hover:text-[var(--accent)]"
+            className="secondary-button"
             href="/part-2"
           >
             Read Part 2
           </Link>
           <Link
-            className="rounded-lg border border-[#374151] px-4 py-2 text-sm font-medium text-[var(--muted)] hover:border-[var(--accent)] hover:text-[var(--accent)]"
+            className="secondary-button"
             href="/brain"
           >
             Open Voice Agent
           </Link>
         </div>
       </section>
-      <section className="grid gap-5 md:grid-cols-3">
-        <div className="border-l border-[#243244] pl-4">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">
+      <section className="signal-grid grid gap-4 md:grid-cols-3">
+        <div className="signal-item">
+          <p className="text-xs font-semibold uppercase text-[var(--muted)]">
             Monday first move
           </p>
           <p className="mt-2 text-sm leading-relaxed text-[#cbd5e1]">
             Start Aniline&apos;s eval audio immediately, then escalate Plexus with telemetry in hand.
           </p>
         </div>
-        <div className="border-l border-[#243244] pl-4">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">
+        <div className="signal-item">
+          <p className="text-xs font-semibold uppercase text-[var(--muted)]">
             DriveLine fix
           </p>
           <p className="mt-2 text-sm leading-relaxed text-[#cbd5e1]">
             Explicitly terminate Streaming sessions; stop billing tails from masquerading as model risk.
           </p>
         </div>
-        <div className="border-l border-[#243244] pl-4">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">
+        <div className="signal-item">
+          <p className="text-xs font-semibold uppercase text-[var(--muted)]">
             Creative layer
           </p>
           <p className="mt-2 text-sm leading-relaxed text-[#cbd5e1]">

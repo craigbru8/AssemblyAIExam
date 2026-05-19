@@ -11,9 +11,9 @@ export default async function NotesPage() {
         <code className="text-[var(--accent)]">implementation-notes.html</code>. Decisions not demanded by the
         external prompt wording.
       </p>
-      <div className="h-[calc(100vh-14rem)] min-h-[480px] overflow-hidden rounded-xl border border-[#1f2937]">
+      <div className="h-[calc(100vh-14rem)] min-h-[480px] overflow-hidden rounded-2xl border border-[var(--line-soft)] shadow-[var(--shadow)]">
         {/* eslint-disable-next-line react/no-danger */}
-        <iframe className="h-full w-full bg-white" sandbox="" title="Implementation notes HTML" srcDoc={html} />
+        <iframe className="h-full w-full bg-[var(--bg)]" sandbox="" title="Implementation notes HTML" srcDoc={html} />
       </div>
       <p className="text-xs text-[var(--muted)]">
         Sandbox keeps scripts disabled; styling is authored inline alongside the markup.

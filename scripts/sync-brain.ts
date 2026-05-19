@@ -1,6 +1,6 @@
 #!/usr/bin/env tsx
 /**
- * Optional helper — prints excerpt of implementation-notes.html <section>s for a slug.
+ * Optional helper: prints excerpt of implementation-notes.html <section>s for a slug.
  *
  * Usage: npm run brain:draft -- [--section id]
  */

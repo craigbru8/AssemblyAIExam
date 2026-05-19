@@ -8,8 +8,8 @@ export default async function NotesPage() {
     <div className="space-y-4">
       <p className="text-sm text-[var(--muted)]">
         Transparent dev diary mirrored from{' '}
-        <code className="text-[var(--accent)]">implementation-notes.html</code> — decisions not demanded by
-        the external prompt wording.
+        <code className="text-[var(--accent)]">implementation-notes.html</code>. Decisions not demanded by the
+        external prompt wording.
       </p>
       <div className="h-[calc(100vh-14rem)] min-h-[480px] overflow-hidden rounded-xl border border-[#1f2937]">
         {/* eslint-disable-next-line react/no-danger */}

@@ -1,7 +1,7 @@
-# Brain — Part 1 priority order
+# Brain: Part 1 priority order
 
-**Source:** implementation-notes.html — section `part-1-priority-order` (2026-05-19)  
-**Take-home ref:** Part 1 — Monday morning sequencing
+**Source:** implementation-notes.html, section `part-1-priority-order` (2026-05-19)  
+**Take-home ref:** Part 1: Monday morning sequencing
 
 ## What I concluded
 
@@ -9,7 +9,7 @@ Aniline anchors the first block because a concrete founder deadline (Tuesday eva
 
 ## Decisions not in the spec
 
-- Parallelized mentally “starting audio eval” alongside “inspect Plexus dashboards” vs strictly serial morning — reflects real multitasking when both are asynchronous workstreams.
+- Parallelized mentally “starting audio eval” alongside “inspect Plexus dashboards” vs strictly serial morning. Reflects real multitasking when both are asynchronous workstreams.
 - Omitted mechanic scoring matrices from final write-up to satisfy brevity preference in prompt.
 
 ## Things I changed or assumed
@@ -19,14 +19,14 @@ Aniline anchors the first block because a concrete founder deadline (Tuesday eva
 
 ## Tradeoffs
 
-- Depth on Aniline may compress polish on Plexus language if hard stop at 45 minutes — accepted because missing Tuesday deliverable is irreversible reputational harm.
+- Depth on Aniline may compress polish on Plexus language if hard stop at 45 minutes. Accepted because missing Tuesday deliverable is irreversible reputational harm.
 
 ## Surprises / open questions
 
-- None material — storyline matches typical FDE triage playbook.
+- None material. Storyline matches typical FDE triage playbook.
 
 ## If the interviewer asks…
 
 - **Why Aniline ahead of Plexus money?** Hard time-boxed proof artifact plus competitive scrutiny vs reversible (though urgent) churn motion.
 - **What if Plexus blows up midday?** Escalated internal CS/Sales flag alongside customer thread within same morning window.
-- **How do you protect focus?** Time-block processing vs comms — audio queue runs automated while human writes targeted emails.
+- **How do you protect focus?** Time-block processing vs comms. Audio queue runs automated while human writes targeted emails.

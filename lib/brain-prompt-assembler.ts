@@ -17,7 +17,7 @@ function loadBrainsMap() {
 function snippet(markdown: string, maxChars: number) {
   const t = markdown.trim()
   if (t.length <= maxChars) return t
-  return `${t.slice(0, maxChars)}\n…[snippet truncated — full prose on Parts pages]`
+  return `${t.slice(0, maxChars)}\n…[snippet truncated; full prose on Parts pages]`
 }
 
 export function assembleBrainPromptForApi(): BrainPromptResult {

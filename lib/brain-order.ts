@@ -1,5 +1,5 @@
 /**
- * Concatenation order for Voice Agent context — prioritized per plan Part 2 then hot Part 1.
+ * Concatenation order for Voice Agent context. Part 2 first, then hot Part 1 items.
  */
 export const BRAIN_PROMPT_SECTIONS_ORDER = [
   { id: 'part-2-diagnosis', file: 'part-2-diagnosis.brain.md', title: 'DriveLine diagnosis' },

@@ -10,8 +10,8 @@ export default async function Part1Page() {
   return (
     <div className="space-y-8">
       <p className="text-sm text-[var(--muted)]">
-        Supporting methodology files live in <code className="text-[var(--accent)]">/brain</code> — each
-        lead + ordering decision has matching <code>*.brain.md</code>.
+        Supporting methodology files live in <code className="text-[var(--accent)]">/brain</code>. Each lead and
+        ordering decision has a matching <code>*.brain.md</code>.
       </p>
       <MarkdownContent markdown={md} />
       <section className="rounded-lg border border-dashed border-[#374151] p-5">

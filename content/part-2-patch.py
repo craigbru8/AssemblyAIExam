@@ -99,7 +99,7 @@ async def transcribe_order(websocket: WebSocket):
             aai_client.stream(audio_chunk)
 
     except WebSocketDisconnect:
-        # Normal path: kiosk closed when customer leaves — terminate upstream session now.
+        # Normal path: kiosk closed when customer leaves; terminate upstream session now.
         logger.info("Drive-thru session ended: kiosk disconnected")
 
     except Exception:

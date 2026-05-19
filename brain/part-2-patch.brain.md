@@ -1,7 +1,7 @@
-# Brain — DriveLine patch strategy
+# Brain: DriveLine patch strategy
 
-**Source:** implementation-notes.html — `part-2-patch`  
-**Take-home ref:** Part 2 — code
+**Source:** implementation-notes.html, section `part-2-patch`
+**Take-home ref:** Part 2: code
 
 ## What I concluded
 
@@ -9,19 +9,19 @@ Minimal patch attaches deterministic cleanup (`disconnect(terminate=True)`) guar
 
 ## Decisions not in the spec
 
-- Keep POS hook as stub referencing integration seam — avoids speculative queue architecture.
+- Keep POS hook as stub referencing integration seam; avoids speculative queue architecture.
 
 ## Things I changed or assumed
 
-- SDK method naming `disconnect(terminate=True)` per AssemblyAI Streaming v3 sample semantics — validate against pinned SDK minor.
+- SDK method naming `disconnect(terminate=True)` per AssemblyAI Streaming v3 sample semantics. Validate against pinned SDK minor.
 
 ## Tradeoffs
 
-- Shorter idle window could close sessions if kiosk flaky pause — monitors should watch false premature termination rates.
+- Shorter idle window could close sessions if kiosk flaky pause. Monitors should watch false premature termination rates.
 
 ## Surprises / open questions
 
-- If underlying `3006` tied to malformed control frames after abrupt disconnect reordering — second-phase investigation post patch.
+- If underlying `3006` tied to malformed control frames after abrupt disconnect reordering. Second-phase investigation post patch.
 
 ## If the interviewer asks…
 

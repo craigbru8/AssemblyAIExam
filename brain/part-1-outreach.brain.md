@@ -1,7 +1,7 @@
-# Brain — Outreach selection (Aniline)
+# Brain: Outreach selection (Aniline)
 
-**Source:** implementation-notes.html — `part-1-outreach`  
-**Take-home ref:** Part 1 — outreach requirement
+**Source:** implementation-notes.html, section `part-1-outreach`
+**Take-home ref:** Part 1: outreach requirement
 
 ## What I concluded
 
@@ -13,11 +13,11 @@ Selecting Aniline for the written outreach best demonstrates disciplined handlin
 
 ## Things I changed or assumed
 
-- Channel assumed email continuity from Sara thread — Slack unknown.
+- Channel assumed email continuity from Sara thread, Slack unknown.
 
 ## Tradeoffs
 
-- Transparency on partial readiness could spook — mitigated via paired technical depth pledge.
+- Transparency on partial readiness could spook. Mitigated via paired technical depth pledge.
 
 ## Surprises / open questions
 
@@ -25,4 +25,4 @@ Selecting Aniline for the written outreach best demonstrates disciplined handlin
 
 ## If the interviewer asks…
 
-- **Why not Plexus outreach example?** Also strong production save narrative — selectable alternate if interviewer wants churn story.
+- **Why not Plexus outreach example?** Also strong production save narrative. Selectable alternate if interviewer wants churn story.

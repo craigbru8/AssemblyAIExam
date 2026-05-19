@@ -3,7 +3,7 @@ import { int16PCMToFloat32, resampleLinear } from '@/lib/audio/pcm'
 /** Schedule decoded reply.audio PCM chunks at nominal Voice Agent PCM rate (~24 kHz). */
 export class AgentAudioPlayer {
   private ctx?: AudioContext
-  /** Active playback nodes — stopped on interruptions */
+  /** Active playback nodes, stopped on interruptions */
   private active: AudioBufferSourceNode[] = []
   constructor(private readonly nominalRate = 24000) {}
 

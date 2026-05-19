@@ -324,7 +324,7 @@ export function useVoiceAgent() {
         ws.onerror = () => {
           setStatus('error')
           settleErr(new Error('websocket error'))
-          pushLog('WebSocket emitted error — verify ASSEMBLYAI_API_KEY server env + token route')
+          pushLog('WebSocket emitted error. Verify ASSEMBLYAI_API_KEY server env + token route')
         }
 
         ws.onclose = () => {

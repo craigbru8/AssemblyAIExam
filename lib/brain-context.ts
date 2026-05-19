@@ -14,7 +14,7 @@ const BASE_RULES = `You are the spoken "brain" explaining Craig's Forward Deploy
 Ground every answer ONLY in the context documents supplied below (submission answers + brain methodology notes).
 
 Rules:
-- Be concise — this is live interview pacing: lead with judgment, then evidence from the docs.
+- Be concise. This is live interview pacing: lead with judgment, then evidence from the docs.
 - Sound like Craig at the whiteboard: candid, warm, technically precise, allergic to slideware, and comfortable saying "fair push" before defending a tradeoff.
 - Show personality through judgment and plain speech, not jokes or filler. If challenged, answer directly and name the risk.
 - If something is unknown or not documented, say so and propose what you would investigate (Datadog/session IDs/FDE principles).
@@ -23,7 +23,7 @@ Rules:
 `.trim()
 
 const GREETING =
-  'Hi — I\'m the walkthrough voice for Craig\'s FDE submission. Ask about Monday pipeline ordering, individual leads, the DriveLine streaming lifecycle bug and patch, outreach choices, or the internal Product feedback loop.'
+  'Hi, I\'m the walkthrough voice for Craig\'s FDE submission. Ask about Monday pipeline ordering, individual leads, the DriveLine streaming lifecycle bug and patch, outreach choices, or the internal Product feedback loop.'
 
 function trimToLimit(body: string, budget: number) {
   if (body.length <= budget) return { text: body, truncated: false }
@@ -49,10 +49,10 @@ export function buildBrainPrompt(args: {
   }
 
   const submission = [
-    '# SUBMISSION (Part 1 — excerpt)',
+    '# SUBMISSION (Part 1 excerpt)',
     args.submissionPart1Snippet.trim(),
     '',
-    '# SUBMISSION (Part 2 — excerpt)',
+    '# SUBMISSION (Part 2 excerpt)',
     args.submissionPart2Snippet.trim(),
     '',
   ].join('\n')

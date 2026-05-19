@@ -1,11 +1,11 @@
-# Brain — Plexus Health (production rescue)
+# Brain: Plexus Health (production rescue)
 
-**Source:** implementation-notes.html — `part-1-plexus`  
+**Source:** implementation-notes.html, section `part-1-plexus`
 **Take-home ref:** Lead 1
 
 ## What I concluded
 
-Plexus exhibits classic production-at-risk fingerprints: shrinking streaming volume concurrent with escalating automated health signals plus champion radio silence — needs hypothesis-led rescue, not a quarterly catch-up cadence.
+Plexus exhibits classic production-at-risk fingerprints: shrinking streaming volume concurrent with escalating automated health signals plus champion radio silence. Needs hypothesis-led rescue, not a quarterly catch-up cadence.
 
 ## Decisions not in the spec
 
@@ -14,15 +14,15 @@ Plexus exhibits classic production-at-risk fingerprints: shrinking streaming vol
 
 ## Things I changed or assumed
 
-- Interpreted Speech Infrastructure JD as ambiguous intentionally — narrative stays open until data lands.
+- Interpreted Speech Infrastructure JD as ambiguous intentionally; narrative stays open until data lands.
 
 ## Tradeoffs
 
-- Faster email after partial analytics vs slower but airtight note — pragmatic default is fast with acknowledged follow-up datapoints risk.
+- Faster email after partial analytics vs slower but airtight note. Pragmatic default is fast with acknowledged follow-up datapoints risk.
 
 ## Surprises / open questions
 
-- Exact clinic-level regression unknown — outreach invites them to nominate owner + share recent deploy window.
+- Exact clinic-level regression unknown. Outreach invites them to nominate owner + share recent deploy window.
 
 ## If the interviewer asks…
 

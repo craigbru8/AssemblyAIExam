@@ -1,11 +1,11 @@
-# Brain — Telegraph Studio (self-serve cliff)
+# Brain: Telegraph Studio (self-serve cliff)
 
-**Source:** implementation-notes.html — `part-1-telegraph`  
+**Source:** implementation-notes.html, section `part-1-telegraph`
 **Take-home ref:** Lead 2
 
 ## What I concluded
 
-Step-function usage then absolute silence screams integration or evaluation fallout — plausible causes include streaming lifecycle bugs, unhappy latency thresholds, competitor selection, billing friction. Absent relational capital, outreach must cite observed facts and offer rapid diagnosis path.
+Step-function usage then absolute silence screams integration or evaluation fallout. Plausible causes include streaming lifecycle bugs, unhappy latency thresholds, competitor selection, billing friction. Absent relational capital, outreach must cite observed facts and offer rapid diagnosis path.
 
 ## Decisions not in the spec
 
@@ -14,11 +14,11 @@ Step-function usage then absolute silence screams integration or evaluation fall
 
 ## Things I changed or assumed
 
-- Identity resolution for outbound limited to signup email/domain — assumes compliance with outreach norms.
+- Identity resolution for outbound limited to signup email/domain, assumes compliance with outreach norms.
 
 ## Tradeoffs
 
-- More technical jargon may confuse non-engineer stakeholder if misrouted — mitigated through engineer-first salutation hypothesis.
+- More technical jargon may confuse non-engineer stakeholder if misrouted. Mitigated through engineer-first salutation hypothesis.
 
 ## Surprises / open questions
 
@@ -26,5 +26,5 @@ Step-function usage then absolute silence screams integration or evaluation fall
 
 ## If the interviewer asks…
 
-- **No human lever?** Use product telemetry candor (“we observed X → Y cliff”) — transparency builds wedge.
+- **No human lever?** Use product telemetry candor (“we observed X → Y cliff”), transparency builds wedge.
 - **If no answer?** Enrich via LinkedIn eng leadership only if Ideal Customer Profile remains strong enough to justify managerial knock.

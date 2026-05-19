@@ -22,7 +22,7 @@ export default function VoiceAgentPanel() {
           <h2 className="text-xl font-semibold text-[var(--fg)]">Talk to my brain · Voice Agent</h2>
           <p className="text-sm text-[var(--muted)]">
             Powered by AssemblyAI Voice Agent API (<code>?token</code>&nbsp;minted securely on this
-            server). Allow microphone permission after the websocket reports ready — audio is PCM mono
+            server). Allow microphone permission after the websocket reports ready. Audio is PCM mono
             @&nbsp;~24&nbsp;kHz.
           </p>
           <p className="text-xs text-[var(--muted)]">
